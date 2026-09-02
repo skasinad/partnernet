@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-ink antialiased;
+    font-feature-settings: "cv05", "ss01";
+  }
+
+  ::selection {
+    background: theme("colors.forest.100");
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight text-ink;
+    font-optical-sizing: auto;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .card {
+    @apply rounded-card border border-line bg-surface shadow-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2
+      text-sm font-medium transition-all disabled:cursor-not-allowed
+      disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-forest-400 focus-visible:ring-offset-2
+      focus-visible:ring-offset-canvas;
+  }
+
+  .btn-primary {
+    @apply btn bg-forest-700 text-white hover:bg-forest-900;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line bg-surface text-ink hover:border-ink-faint
+      hover:bg-canvas;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-soft hover:bg-forest-50 hover:text-forest-700;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-[13px];
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[13px] font-medium text-ink-soft;
+  }
+
+  .field-input {
+    @apply w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm
+      text-ink placeholder:text-ink-faint focus:border-forest-400
+      focus:outline-none focus:ring-2 focus:ring-forest-100;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1 rounded-full border border-line
+      bg-canvas px-2.5 py-1 text-xs font-medium text-ink-soft;
+  }
+
+  .pill-accent {
+    @apply border-forest-200 bg-forest-50 text-forest-700;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-clay-600;
+  }
+}
